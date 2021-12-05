@@ -1,12 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Početna</router-link> |
-      <router-link to="/ville">Ville</router-link> |
-      <router-link to="/kontakt">Kontakt</router-link> |
-      <router-link to="/o nama">O nama</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="@/assets/vialux.png"
+          alt=""
+          height="50"
+          class="d-inline-block align-text-top"
+        />
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarToggler" 
+        aria-controls="navbarToggler" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Početna</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/ville" class="nav-link">Ville</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/kontakt" class="nav-link">Kontakt</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/o nama" class="nav-link">O nama</router-link>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Pretraga" aria-label="Pretraga">
+          <button class="btn btn-outline-success" type="submit">Pretraga</button>
+        </form>
+      </div>
+    </nav>
+    <div class="conatiner">  
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -16,18 +52,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #0a0e11;
 }
 
 #nav {
   padding: 30px;
+  background-color: white !important;
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #3083d6;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #070a09;
     }
   }
 }
