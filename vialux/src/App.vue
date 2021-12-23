@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">
         <img
           src="@/assets/vialux.png"
@@ -9,14 +9,15 @@
           class="d-inline-block align-text-top"
         />
       </a>
-      <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-toggle="collapse" 
-        data-target="#navbarToggler" 
-        aria-controls="navbarToggler" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler"
+        aria-controls="navbarToggler"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
@@ -35,12 +36,19 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Pretraga" aria-label="Pretraga">
-          <button class="btn btn-outline-success" type="submit">Pretraga</button>
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Pretraga"
+            aria-label="Pretraga"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Pretraga
+          </button>
         </form>
       </div>
     </nav>
-    <div class="conatiner">  
+    <div class="conatiner">
       <router-view />
     </div>
   </div>
