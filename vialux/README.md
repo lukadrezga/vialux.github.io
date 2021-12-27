@@ -6,11 +6,11 @@ Web aplikacija za rezervaciju luksuznih villa u Hrvatskoj.
 
 **Luka Drezga** (ldrezga@student.unipu.hr) - baza podataka i implementacija za rezervaciju villa
 
-**Sanja Medinac**
+**Sanja Medinac** (smedinac@student.unipu.hr) - izrada sučelja za rezervaciju villa
 
 ### Prototip aplikacije
 
-Figma: 
+Figma: https://www.figma.com/file/QIyfQmqeUmeZpuzRHkaHSn/VIALUX_PROTOTIP
 
 ### Javni link na aplikaciju
 
