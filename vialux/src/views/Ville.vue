@@ -28,11 +28,13 @@
 <script>
 // @ is an alias to /src
 import Kartaville from "@/components/Kartaville.vue";
+import store from "@/store";
 
 export default {
   name: "Home",
   components: {
     Kartaville,
+    store,
   },
 };
 </script>

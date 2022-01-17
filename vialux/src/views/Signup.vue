@@ -63,9 +63,9 @@ export default {
   methods: {
     signup() {
       createUserWithEmailAndPassword(auth, this.username, this.password)
-        .then(function (userCred) {
-          const user = userCred.user;
-          console.log("Uspješna registracija");
+        .then((rez) => {
+          console.log("Uspješna registracija", rez);
+          this.$router.push({ name: "Home" });
         })
         .catch(function (error) {
           console.error("Došlo je do pogreške", error);

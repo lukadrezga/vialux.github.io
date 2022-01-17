@@ -15,9 +15,19 @@
 <script>
 // @ is an alias to /src
 import Kartaville from "@/components/Kartaville.vue";
+import store from "@/store";
+
+let hello = "Ovdje upisati nešto";
 
 export default {
   name: "Home",
+  data: function () {
+    return {
+      hello,
+      store,
+    };
+  },
+  computed: {},
   components: {
     Kartaville,
   },

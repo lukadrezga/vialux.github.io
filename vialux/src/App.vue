@@ -34,15 +34,19 @@
           <li class="nav-item">
             <router-link to="/o nama" class="nav-link">O nama</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/signup" class="nav-link">Signup</router-link>
+          </li>
+          <li v-if="store.currentUser" class="nav-item">
+            <a href="#" @click="logout()" class="nav-link">Logout</a>
           </li>
         </ul>
         <form class="d-flex">
           <input
+            v-model="store.searchTerm"
             class="form-control me-2"
             type="search"
             placeholder="Pretraga"
@@ -59,6 +63,39 @@
     </div>
   </div>
 </template>
+
+<script>
+import store from "@/store";
+import { auth } from "@/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    console.log("***", user.email);
+    store.currentUser = user.email;
+  } else {
+    console.log("*** No user");
+    store.currentUser = null;
+  }
+});
+
+export default {
+  name: "app",
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    logout() {
+      auth.signOut().then(() => {
+        this.$router.push({ name: "Login" });
+      });
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
