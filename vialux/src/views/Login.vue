@@ -59,7 +59,7 @@ export default {
           this.$router.replace({ name: "Home" });
         })
         .catch(function (er) {
-          console.error("Login nije uspio, došlo je do pogreške", er);
+          alert("Login nije uspio, došlo je do pogreške", er);
         });
     },
   },

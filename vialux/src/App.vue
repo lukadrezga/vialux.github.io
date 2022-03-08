@@ -43,6 +43,9 @@
           <li v-if="store.currentUser" class="nav-item">
             <a href="#" @click="logout()" class="nav-link">Logout</a>
           </li>
+          <li v-if="store.currentUser" class="nav-item">
+            <router-link to="/admin" class="nav-link">Admin</router-link>
+          </li>
         </ul>
         <form class="d-flex">
           <input
@@ -52,9 +55,6 @@
             placeholder="Pretraga"
             aria-label="Pretraga"
           />
-          <button class="btn btn-outline-success" type="submit">
-            Pretraga
-          </button>
         </form>
       </div>
     </nav>
@@ -68,8 +68,12 @@
 import store from "@/store";
 import { auth } from "@/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import router from "@/router";
 
 auth.onAuthStateChanged((user) => {
+  const currentRoute = router.currentRoute;
+
+  console.log("PROVJERA STANJA LOGINA");
   if (user) {
     // User is signed in.
     console.log("***", user.email);
@@ -77,6 +81,10 @@ auth.onAuthStateChanged((user) => {
   } else {
     console.log("*** No user");
     store.currentUser = null;
+
+    if (currentRoute.meta.needsUser) {
+      router.push({ name: "login" });
+    }
   }
 });
 

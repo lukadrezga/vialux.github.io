@@ -1,10 +1,9 @@
 <template>
   <div class="card" style="width: 18rem">
-    <img src="" class="card-img-top" alt="..." />
+    <img :src="info.url" class="card-img-top" alt="..." />
     <div class="card-body">
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        {{ info.description }}
       </p>
     </div>
   </div>
@@ -13,6 +12,6 @@
 <script>
 export default {
   name: "Kartaville",
-  props: {},
+  props: ["info"],
 };
 </script>

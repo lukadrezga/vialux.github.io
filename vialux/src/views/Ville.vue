@@ -4,21 +4,39 @@
     <section class="content-inside-grey">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <Kartaville />
-            <br /><br />
-            <Kartaville />
+          <div class="col-10">
+            <form @submit.prevent="postNewImage" class="form-inline mb-5">
+              <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input
+                  v-model="newImageUrl"
+                  type="text"
+                  class="form-control ml-2"
+                  placeholder="Enter the image URL"
+                  id="imageUrl"
+                />
+              </div>
+              <div class="form-group">
+                <label for="imageDescription">Description</label>
+                <input
+                  v-model="newImageDescription"
+                  type="text"
+                  class="form-control ml-2"
+                  placeholder="Enter the image description"
+                  id="imageDescription"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary ml-2">
+                Post image
+              </button>
+            </form>
+            <Kartaville
+              v-for="card in filteredCardes"
+              :key="card.url"
+              :info="card"
+            />
           </div>
-          <div class="col">
-            <Kartaville />
-            <br /><br />
-            <Kartaville />
-          </div>
-          <div class="col">
-            <Kartaville />
-            <br /><br />
-            <Kartaville />
-          </div>
+          <div class="col-2"></div>
         </div>
       </div>
     </section>
@@ -29,9 +47,59 @@
 // @ is an alias to /src
 import Kartaville from "@/components/Kartaville.vue";
 import store from "@/store";
+import { db } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
+
+let cardes = [];
+
+cardes = [
+  {
+    url: "https://croatia-exclusive.com/storage/app/uploads/public/607/d29/a1a/607d29a1a063e381169397.jpg",
+    description: "Villa Frida",
+  },
+  {
+    url: "https://www.myistria.com/UserDocsImages/app/objekti/1679/slika_hd/21012022091409_Villa-near-Umag-Villa-Stancija-Baracija%2079.jpg",
+    description: "Villa Stancija Baracija",
+  },
+];
 
 export default {
   name: "Home",
+  data: function () {
+    return {
+      cardes,
+      store,
+      newImageDescription: "",
+      newImageUrl: "",
+    };
+  },
+  methods: {
+    postNewImage() {
+      console.log("Ok");
+
+      const imageUrl = this.newImageUrl;
+      const imageDescription = this.newImageDescription;
+
+      try {
+        const docRef = addDoc(collection(db, "ville"), {
+          url: imageUrl,
+          desc: imageDescription,
+          email: store.currentUser,
+        });
+        console.log("Spremljeno", docRef);
+        this.newImageDescription = "";
+        this.newImageUrl = "";
+      } catch (e) {
+        console.error("Pogreška", e);
+      }
+    },
+  },
+  computed: {
+    filteredCardes() {
+      let termin = this.store.searchTerm;
+      return this.cardes.filter((card) => card.description.includes(termin));
+    },
+  },
   components: {
     Kartaville,
     store,
