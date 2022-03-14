@@ -48,32 +48,48 @@
 import Kartaville from "@/components/Kartaville.vue";
 import store from "@/store";
 import { db } from "@/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
-let cardes = [];
-
-cardes = [
-  {
-    url: "https://croatia-exclusive.com/storage/app/uploads/public/607/d29/a1a/607d29a1a063e381169397.jpg",
-    description: "Villa Frida",
-  },
-  {
-    url: "https://www.myistria.com/UserDocsImages/app/objekti/1679/slika_hd/21012022091409_Villa-near-Umag-Villa-Stancija-Baracija%2079.jpg",
-    description: "Villa Stancija Baracija",
-  },
-];
+//cardes = [
+//  {
+//    url: "https://croatia-exclusive.com/storage/app/uploads/public/607/d29/a1a/607d29a1a063e381169397.jpg",
+//    description: "Villa Frida",
+//  },
+//  {
+//    url: "https://www.myistria.com/UserDocsImages/app/objekti/1679/slika_hd/21012022091409_Villa-near-Umag-Villa-Stancija-Baracija%2079.jpg",
+//    description: "Villa Stancija Baracija",
+//  },
+//];
 
 export default {
   name: "Home",
   data: function () {
     return {
-      cardes,
+      cardes: [],
       store,
       newImageDescription: "",
       newImageUrl: "",
     };
   },
+  mounted() {
+    this.getPosts();
+  },
   methods: {
+    getPosts() {
+      console.log("firebase dohvat...");
+
+      const colRef = collection(db, "ville");
+
+      getDocs(colRef).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          const data = doc.data();
+          this.cardes.push({
+            description: data.desc,
+            url: data.url,
+          });
+        });
+      });
+    },
     postNewImage() {
       console.log("Ok");
 
@@ -89,6 +105,8 @@ export default {
         console.log("Spremljeno", docRef);
         this.newImageDescription = "";
         this.newImageUrl = "";
+
+        this.getPosts();
       } catch (e) {
         console.error("Pogreška", e);
       }
