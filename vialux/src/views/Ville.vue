@@ -5,16 +5,14 @@
       <div class="container">
         <div class="row">
           <div class="col-10">
-            <form @submit.prevent="postNewImage" class="form-inline mb-5">
+            <form @submit.prevent="postNewImage" class="mb-5">
               <div class="form-group">
-                <label for="imageUrl">Image URL</label>
-                <input
-                  v-model="newImageUrl"
-                  type="text"
-                  class="form-control ml-2"
-                  placeholder="Enter the image URL"
-                  id="imageUrl"
-                />
+                <croppa
+                  :width="400"
+                  :height="400"
+                  placeholder="Učitaj sliku..."
+                  v-model="imageReference"
+                ></croppa>
               </div>
               <div class="form-group">
                 <label for="imageDescription">Description</label>
@@ -47,8 +45,10 @@
 // @ is an alias to /src
 import Kartaville from "@/components/Kartaville.vue";
 import store from "@/store";
-import { db } from "@/firebase";
+import { db, storage } from "@/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
+import { getDatabase, push, set, ref as dbRef } from "firebase/database";
 
 //cardes = [
 //  {
@@ -69,6 +69,7 @@ export default {
       store,
       newImageDescription: "",
       newImageUrl: "",
+      imageReference: null,
     };
   },
   mounted() {
@@ -93,7 +94,26 @@ export default {
     postNewImage() {
       console.log("Ok");
 
-      const imageUrl = this.newImageUrl;
+      this.imageReference.generateBlob((blobData) => {
+        console.log(blobData);
+
+        let imageName = store.currentUser + "_" + Date.now() + ".png";
+        const storageRef = ref(storage, "files/" + files.name);
+
+        const database = getDatabase();
+        const databaseReference = dbRef(database, "files");
+
+        uploadBytes(storageRef, files).then(function (snapshot) {
+          var newFileRef = push(databaseReference);
+
+          set(newFileRef, {
+            name: files.name,
+          });
+        });
+      });
+
+      return;
+
       const imageDescription = this.newImageDescription;
 
       try {
