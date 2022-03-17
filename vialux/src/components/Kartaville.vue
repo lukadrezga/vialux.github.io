@@ -5,6 +5,12 @@
       <p class="card-text">
         {{ info.description }}
       </p>
+      <p class="card-text">
+        {{ info.place }}
+      </p>
+      <p class="card-text">
+        {{ info.adress }}
+      </p>
     </div>
   </div>
 </template>

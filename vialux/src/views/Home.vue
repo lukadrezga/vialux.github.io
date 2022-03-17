@@ -27,10 +27,14 @@ cards = [
   {
     url: "https://croatia-exclusive.com/storage/app/uploads/public/607/d29/a1a/607d29a1a063e381169397.jpg",
     description: "Villa Frida",
+    place: "Mjesto: Vabriga",
+    adress: "Adresa: Lovarska ulica 17",
   },
   {
     url: "https://www.myistria.com/UserDocsImages/app/objekti/1679/slika_hd/21012022091409_Villa-near-Umag-Villa-Stancija-Baracija%2079.jpg",
     description: "Villa Stancija Baracija",
+    place: "Mjesto: Buje",
+    adress: "Adresa: Baredine",
   },
 ];
 

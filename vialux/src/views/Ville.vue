@@ -32,6 +32,8 @@ export default {
       cardes: [],
       store,
       newImageDescription: "",
+      newImagePlace: "",
+      newImageAdress: "",
       newImageUrl: "",
       imageReference: null,
     };
@@ -51,6 +53,8 @@ export default {
           const data = doc.data();
           this.cardes.push({
             description: data.desc,
+            place: data.place,
+            adress: data.adress,
             url: data.url,
           });
         });

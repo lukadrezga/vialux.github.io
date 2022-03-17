@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Ovdje će se nalaziti ville u Hrvatskoj.</h1>
+    <h1>Ovdje će se nalaziti forma za unos villa u aplikaciju.</h1>
     <section class="content-inside-grey">
       <div class="container">
         <div class="row">
@@ -22,6 +22,26 @@
                   class="form-control ml-2"
                   placeholder="Enter the image description"
                   id="imageDescription"
+                />
+              </div>
+              <div class="form-group">
+                <label for="imagePlace">Place</label>
+                <input
+                  v-model="newImagePlace"
+                  type="text"
+                  class="form-control ml-2"
+                  placeholder="Enter the image place"
+                  id="imagePlace"
+                />
+              </div>
+              <div class="form-group">
+                <label for="imageAdress">Adress</label>
+                <input
+                  v-model="newImageAdress"
+                  type="text"
+                  class="form-control ml-2"
+                  placeholder="Enter the image adress"
+                  id="imageAdress"
                 />
               </div>
               <button type="submit" class="btn btn-primary ml-2">
@@ -49,6 +69,8 @@ export default {
     return {
       store,
       newImageDescription: "",
+      newImagePlace: "",
+      newImageAdress: "",
       newImageUrl: "",
       imageReference: null,
     };
@@ -56,6 +78,8 @@ export default {
   methods: {
     postNewImage() {
       const imageDescription = this.newImageDescription;
+      const imagePlace = this.newImagePlace;
+      const imageAdress = this.newImageAdress;
 
       this.imageReference.generateBlob((blobData) => {
         const imageName = store.currentUser + "_" + Date.now() + ".png";
@@ -73,6 +97,8 @@ export default {
                 var docRef = addDoc(collection(db, "ville"), {
                   url: url,
                   desc: imageDescription,
+                  place: imagePlace,
+                  adress: imageAdress,
                   email: store.currentUser,
                 });
                 console.log("Spremljeno", docRef);
