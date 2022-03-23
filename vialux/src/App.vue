@@ -28,12 +28,6 @@
           <li class="nav-item">
             <router-link to="/ville" class="nav-link">Ville</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/kontakt" class="nav-link">Kontakt</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/o nama" class="nav-link">O nama</router-link>
-          </li>
           <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
           </li>
