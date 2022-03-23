@@ -28,6 +28,9 @@
           <li class="nav-item">
             <router-link to="/ville" class="nav-link">Ville</router-link>
           </li>
+          <li v-if="store.currentUser" class="nav-item">
+            <router-link to="/rezervacija" class="nav-link">Rezervacija</router-link>
+          </li>
           <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
           </li>
