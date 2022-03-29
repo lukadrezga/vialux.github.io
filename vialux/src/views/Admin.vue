@@ -1,10 +1,18 @@
 <template>
   <div class="about">
-    <h1>Ovdje će se nalaziti forma za unos villa u aplikaciju.</h1>
+    <h1>Ovdje se nalazi forma za unos villa u aplikaciju.</h1>
+    <br />
+    <p>
+      Iako je forma vidljiva svima, ovu formu mogu koristiti samo administratori
+      ove stranice. Bilo kakva dodavanja villa od strane osobe koja nije
+      administrator, biti će <strong><u> OBRISANA </u></strong> , a account
+      blokiran!
+    </p>
+    <br />
     <section class="content-inside-grey">
       <div class="container">
         <div class="row">
-          <div class="col-10">
+          <div class="col-sm">
             <form @submit.prevent="postNewImage" class="mb-5">
               <div class="form-group">
                 <croppa
@@ -44,12 +52,12 @@
                   id="imageAdress"
                 />
               </div>
+              <br />
               <button type="submit" class="btn btn-primary ml-2">
                 Post image
               </button>
             </form>
           </div>
-          <div class="col-2"></div>
         </div>
       </div>
     </section>
@@ -119,3 +127,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+</style>

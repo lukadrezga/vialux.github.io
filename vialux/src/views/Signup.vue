@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm"></div>
-        <div class="col-sm-12">
+        <div class="col-sm">
           <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Email addresa</label>
@@ -42,6 +42,7 @@
             </button>
           </form>
         </div>
+        <div class="col-sm"></div>
       </div>
     </div>
   </div>

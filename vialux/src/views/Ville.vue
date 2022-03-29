@@ -1,20 +1,15 @@
 <template>
-  <div class="about">
-    <h1>Ovdje će se nalaziti ville u Hrvatskoj.</h1>
-    <section class="content-inside-grey">
-      <div class="container">
-        <div class="row">
-          <div class="col-10">
-            <Kartaville
-              v-for="card in filteredCardes"
-              :key="card.url"
-              :info="card"
-            />
-          </div>
-          <div class="col-2"></div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Ovdje će se nalaziti ville u Hrvatskoj.</h1>
+        <Kartaville
+          v-for="card in filteredCardes"
+          :key="card.url"
+          :info="card"
+        />
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -64,7 +59,9 @@ export default {
   computed: {
     filteredCardes() {
       let termin = this.store.searchTerm;
-      return this.cardes.filter((card) => card.description.includes(termin));
+      return this.cardes.filter(
+        (card) => card.description.indexOf(termin) >= 0
+      );
     },
   },
   components: {

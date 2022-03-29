@@ -29,7 +29,9 @@
             <router-link to="/ville" class="nav-link">Ville</router-link>
           </li>
           <li v-if="store.currentUser" class="nav-item">
-            <router-link to="/rezervacija" class="nav-link">Rezervacija</router-link>
+            <router-link to="/rezervacija" class="nav-link"
+              >Rezervacija</router-link
+            >
           </li>
           <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
@@ -64,7 +66,6 @@
 <script>
 import store from "@/store";
 import { auth } from "@/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
 import router from "@/router";
 
 auth.onAuthStateChanged((user) => {
