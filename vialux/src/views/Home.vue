@@ -1,15 +1,10 @@
 <template>
   <div class="container">
-    <div class="row d-flex">
-      <div class="col">
-        <h1>{{ hello }}</h1>
-        <Kartaville
-          v-for="card in filteredCards"
-          :key="card.url"
-          :info="card"
-        />
-        <br />
-      </div>
+    <h1>{{ hello }}</h1>
+    <br />
+    <div class="row justify-content-center m5">
+      <Kartaville v-for="card in filteredCards" :key="card.url" :info="card" />
+      <br />
     </div>
   </div>
 </template>

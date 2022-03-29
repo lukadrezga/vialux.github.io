@@ -1,30 +1,28 @@
 <template>
-  <div class="row justify-content-center m-5">
-    <div class="card" style="width: 500px">
-      <img :src="info.url" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <p class="card-text">
-          {{ info.description }}
-        </p>
-        <p class="card-text">
-          {{ info.place }}
-        </p>
-        <p class="card-text">
-          {{ info.adress }}
-        </p>
-        <router-link
-          to="/rezervacija"
-          v-if="store.currentUser"
-          type="button"
-          class="btn btn-primary"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-          style="float: right"
-        >
-          Rezervacija
-        </router-link>
-      </div>
+  <div class="card" style="width: 300px">
+    <img :src="info.url" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <p class="card-text">
+        {{ info.description }}
+      </p>
+      <p class="card-text">
+        {{ info.place }}
+      </p>
+      <p class="card-text">
+        {{ info.adress }}
+      </p>
+      <router-link
+        to="/rezervacija"
+        v-if="store.currentUser"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="button"
+        aria-pressed="false"
+        autocomplete="off"
+        style="float: right"
+      >
+        Rezervacija
+      </router-link>
     </div>
   </div>
 </template>
@@ -44,6 +42,8 @@ body {
   padding: 16px;
   text-align: left;
   background-color: #f1f1f1;
+  margin-bottom: 30px;
+  margin-right: 20px;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -51,7 +51,7 @@ body {
   .column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 </style>

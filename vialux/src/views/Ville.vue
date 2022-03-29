@@ -1,14 +1,9 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Ovdje će se nalaziti ville u Hrvatskoj.</h1>
-        <Kartaville
-          v-for="card in filteredCardes"
-          :key="card.url"
-          :info="card"
-        />
-      </div>
+    <h1>Ovdje se nalaze ponuđene ville u Hrvatskoj.</h1>
+    <br />
+    <div class="row justify-content-center">
+      <Kartaville v-for="card in filteredCardes" :key="card.url" :info="card" />
     </div>
   </div>
 </template>
