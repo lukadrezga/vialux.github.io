@@ -28,10 +28,8 @@
           <li class="nav-item">
             <router-link to="/ville" class="nav-link">Ville</router-link>
           </li>
-          <li v-if="store.currentUser" class="nav-item">
-            <router-link to="/rezervacija" class="nav-link"
-              >Rezervacija</router-link
-            >
+          <li class="nav-item">
+            <router-link to="/kontakt" class="nav-link">Kontakt</router-link>
           </li>
           <li v-if="!store.currentUser" class="nav-item">
             <router-link to="/login" class="nav-link">Login</router-link>
@@ -109,7 +107,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #0a0e11;
+  color: #020303;
 }
 
 #nav {

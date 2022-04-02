@@ -86,6 +86,20 @@
               placeholder="Datum"
             />
             <br />
+            <h2>Naplata rezervacije</h2>
+            <label for="Name"
+              >Molimo odaberite način naplate rezervacije objekta*</label
+            >
+            <br />
+            <select id="naplata" name="naplata">
+              <option value="naplata1">
+                Naplata prilikom dolaska u smještaj
+              </option>
+              <option value="naplata2">Naplata internetom</option>
+              <br />
+            </select>
+            <br />
+            <br />
             <button type="submit" class="btn btn-primary">Potvrdi</button>
           </form>
         </div>
