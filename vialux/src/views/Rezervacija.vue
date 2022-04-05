@@ -100,7 +100,13 @@
             </select>
             <br />
             <br />
-            <button type="submit" class="btn btn-primary">Potvrdi</button>
+            <a
+              href="#"
+              onClick="myFunction()"
+              type="submit"
+              class="btn btn-primary"
+              >Potvrdi</a
+            >
           </form>
         </div>
         <div class="col-sm"></div>
@@ -108,3 +114,9 @@
     </div>
   </div>
 </template>
+
+<script>
+myFunction = function () {
+  alert("Rezervacija je uspješno izvršena!");
+};
+</script>

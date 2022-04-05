@@ -4,9 +4,9 @@
     <br />
     <p>
       Iako je forma vidljiva svima, ovu formu mogu koristiti samo administratori
-      ove stranice. Bilo kakva dodavanja villa od strane osobe koja nije
-      administrator, biti će <strong><u> OBRISANA </u></strong> , a account
-      blokiran!
+      ove stranice i onima kojima je odobreno od strane administratora. Bilo
+      kakva dodavanja villa od strane osobe kojima nije odobreno, biti će
+      <strong><u> OBRISANA </u></strong> , a account blokiran!
     </p>
     <br />
     <section class="content-inside-grey">
