@@ -4,7 +4,7 @@ Web aplikacija za rezervaciju luksuznih villa u Hrvatskoj.
 
 ## Autori i zaduženja
 
-**Luka Drezga** (ldrezga@student.unipu.hr) - baza podataka i implementacija za rezervaciju villa
+**Luka Drezga** (ldrezga@student.unipu.hr) - baza podataka i ispis zadanih podataka
 
 **Sanja Medinac** (smedinac@student.unipu.hr) - izrada sučelja za rezervaciju villa
 
@@ -14,7 +14,7 @@ Figma: https://www.figma.com/file/QIyfQmqeUmeZpuzRHkaHSn/VIALUX_PROTOTIP
 
 ### Javni link na aplikaciju
 
-
+Link na plikaciju: https://vialux-github-io.vercel.app/
 
 ### Organizacija
 [Sveučilište Jurja Dobrile u Puli](https://www.unipu.hr/)
